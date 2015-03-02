@@ -226,10 +226,12 @@ CGFloat const kJSAvatarSize = 50.0f;
 			else
 			{
 				CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), textColor.CGColor);
-				[self.text drawInRect:textFrame
-							 withFont:[JSBubbleView font]
-						lineBreakMode:NSLineBreakByWordWrapping
-							alignment:NSTextAlignmentLeft];
+                NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+                textStyle.lineBreakMode = NSLineBreakByWordWrapping;
+                textStyle.alignment = NSTextAlignmentLeft;
+                
+                [self.text drawInRect:textFrame withAttributes:@{NSFontAttributeName: [JSBubbleView font],NSParagraphStyleAttributeName: textStyle}];
+                
 				CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor blackColor].CGColor);
 			}
 		}

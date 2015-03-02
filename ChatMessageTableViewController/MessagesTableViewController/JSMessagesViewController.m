@@ -112,7 +112,7 @@
     self.inputToolBarView.textView.dismissivePanGestureRecognizer = self.tableView.panGestureRecognizer;
     self.inputToolBarView.textView.keyboardDelegate = self;
     
-    self.inputToolBarView.textView.placeHolder = @"说点什么呢？";
+    self.inputToolBarView.textView.placeHolder = NSLocalizedString(@"Your Message",@"message");
     
     UIButton *sendButton = [self sendButton];
     sendButton.enabled = NO;
